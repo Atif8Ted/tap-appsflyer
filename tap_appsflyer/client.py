@@ -96,8 +96,12 @@ class AppsflyerClient:
 
         req = requests.Request("GET", url, params=params, headers=headers).prepare()
         LOGGER.info(
-            "GET {0} | Date interval: from {1} to {2} : retargeting : {3}:".format(
-                url, params["from"], params["to"], params["reattr"]
+            "GET {0} | Date interval: from {1} to {2} : retargeting: {3}  : events: {4} ".format(
+                url,
+                params["from"],
+                params["to"],
+                params["reattr"],
+                params.get("events"),
             )
         )
 
