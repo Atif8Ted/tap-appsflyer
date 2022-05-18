@@ -37,6 +37,7 @@ This is a meltano compatible tap and can be configured as below:
       api_token: api_token
       start_date: 2022-02-15T14:30:0Z 
       reports: list of reports that you want to pull
+      events: list of events to be pulled
 
 ```
 ### Reports included 

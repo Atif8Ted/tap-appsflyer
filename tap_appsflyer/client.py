@@ -157,6 +157,9 @@ class AppsflyerClient:
                 req_interval["from"], req_interval["to"]
             )
             params["reattr"] = reattr
+            events = self.config.get("events")
+            if events:
+                params["events"] = events
 
             request_data = self._request(url, params)
 
