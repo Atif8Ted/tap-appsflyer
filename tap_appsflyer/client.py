@@ -101,7 +101,7 @@ class AppsflyerClient:
                 params["from"],
                 params["to"],
                 params["reattr"],
-                params.get("events"),
+                params.get("event_name"),
             )
         )
 
@@ -163,7 +163,7 @@ class AppsflyerClient:
             params["reattr"] = reattr
             events = self.config.get("events")
             if events:
-                params["events"] = events
+                params["event_name"] = events
 
             request_data = self._request(url, params)
 
