@@ -9,7 +9,6 @@ from singer import transform
 from singer import utils
 from datetime import datetime, timedelta
 
-
 LOGGER = singer.get_logger()
 SESSION = requests.Session()
 
@@ -140,13 +139,13 @@ class AppsflyerClient:
         return params
 
     def get_raw_data(
-        self,
-        report_name,
-        report_version,
-        from_datetime,
-        to_datetime,
-        fieldnames,
-        reattr,
+            self,
+            report_name,
+            report_version,
+            from_datetime,
+            to_datetime,
+            fieldnames,
+            reattr,
     ):
         # Raw data: https://support.appsflyer.com/hc/en-us/articles/360007530258-Using-Pull-API-raw-data
 
@@ -161,6 +160,8 @@ class AppsflyerClient:
                 req_interval["from"], req_interval["to"]
             )
             params["reattr"] = reattr
+            params["maximum_rows"] = "1000000"
+
             events = self.config.get("events")
             if events:
                 params["event_name"] = events
